@@ -2,5 +2,35 @@
   "workspaces": [
     "packages/*"
   ],
-  "packageManager": "yarn@3.6.0"
+  "packageManager": "yarn@3.6.0",
+  "scripts": {
+    "clean:all": "yarn run clean:artifacts && yarn run clean:dependencies",
+    "clean:artifacts": "rm -rf $(find . -type d -name build -o -type d -name dist -o -type d -name built -o -type d -name out)",
+    "clean:dependencies": "rm -rf $(find . -type d -name node_modules -o -type l)",
+    "format": "prettier --write .",
+    "lint": "eslint .",
+    "prepare": "husky install"
+  },
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.61.0",
+    "@typescript-eslint/parser": "^5.61.0",
+    "eslint": "^8.44.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-jsonc": "^2.9.0",
+    "eslint-plugin-prettier": "^5.0.0-alpha.2",
+    "eslint-plugin-sort-imports-es6-autofix": "^0.6.0",
+    "eslint-plugin-sort-keys-fix": "^1.1.2",
+    "eslint-plugin-yml": "^1.8.0",
+    "husky": "^8.0.3",
+    "jsonc-eslint-parser": "^2.3.0",
+    "lint-staged": "^13.2.3",
+    "prettier": "^3.0.0",
+    "typescript": "^5.1.6",
+    "yaml-eslint-parser": "^1.2.2"
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "prettier --write"
+    ]
+  }
 }

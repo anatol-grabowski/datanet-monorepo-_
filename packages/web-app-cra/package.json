@@ -1,0 +1,53 @@
+{
+  "name": "web-app-cra",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^27.5.2",
+    "@types/node": "^16.18.37",
+    "@types/react": "^18.2.14",
+    "@types/react-dom": "^18.2.6",
+    "axios": "^1.4.0",
+    "basic-authorization-header": "^0.2.7",
+    "data-net": "git+https://github.com/grabantot/data-net.git#simple",
+    "debug": "^4.3.4",
+    "prop-types": "^15.8.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-dropzone": "^14.2.3",
+    "react-markdown": "^8.0.7",
+    "react-mathjax": "^1.0.1",
+    "react-router-dom": "^6.14.0",
+    "react-scripts": "5.0.1",
+    "recompose": "^0.30.0",
+    "remark-math": "^5.1.1",
+    "sass": "^1.63.6",
+    "sass-loader": "^13.3.2",
+    "typescript": "^4.9.5",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "watch": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "standalone": "REACT_APP_STANDALONE=true yarn run watch # run without relying on backend",
+    "local": "REACT_APP_API_URL='http://localhost:8080' npm run watch",
+    "remote": "REACT_APP_API_URL='https://shielded-cove-66557.herokuapp.com' npm run watch"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

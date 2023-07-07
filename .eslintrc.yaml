@@ -1,0 +1,76 @@
+env:
+  node: true
+parserOptions:
+  ecmaVersion: 2020
+extends:
+  - eslint:recommended
+  - prettier
+plugins:
+  - sort-keys-fix
+  - sort-imports-es6-autofix
+  - prettier
+ignorePatterns:
+  - dist/
+  - build/
+  - out/
+  - built/
+
+rules:
+  jsonc/sort-keys: warn
+  prefer-rest-params: off
+  prettier/prettier: warn
+  sort-imports-es6-autofix/sort-imports-es6:
+    - warn
+    - memberSyntaxSortOrder: [none, all, single, multiple]
+  sort-keys-fix/sort-keys-fix:
+    - warn
+    - asc
+    - caseSensitive: true
+      natural: true
+overrides:
+  - files: ['*.json', '*.json5', '*.jsonc']
+    extends:
+      - plugin:jsonc/recommended-with-jsonc
+    parser: jsonc-eslint-parser
+    rules:
+      jsonc/sort-keys:
+        - warn
+        - pathPattern: (dependencies|devDependencies|scripts|compilerOptions)$
+          order: { type: asc }
+        - pathPattern: .
+          order: [] # disable sort
+
+  - files: ['*.yaml', '*.yml']
+    extends:
+      - plugin:yml/standard
+      - plugin:yml/prettier
+    parser: yaml-eslint-parser
+    rules:
+      yml/sort-keys:
+        - warn
+        - pathPattern: rules$
+          order: { type: asc }
+        - pathPattern: .
+          order: [] # disable sort
+
+  - files: ['**/*.ts?(x)']
+    parserOptions:
+      ecmaVersion: 2020
+      project:
+        - ./tsconfig.base.json # don't know which value should be here but seems to be working
+      sourceType: module
+    extends: # some of the rules above may get reset by 'extends' so they have to be repeated below
+      - 'plugin:@typescript-eslint/recommended'
+      - prettier
+    plugins:
+      - '@typescript-eslint'
+    rules:
+      '@typescript-eslint/ban-types': off
+      '@typescript-eslint/explicit-module-boundary-types': off
+      '@typescript-eslint/no-empty-function': off
+      '@typescript-eslint/no-explicit-any': off
+      '@typescript-eslint/no-floating-promises': error # requires parserOptions.project to be set
+      '@typescript-eslint/no-inferrable-types': off
+      '@typescript-eslint/no-non-null-assertion': off
+      '@typescript-eslint/no-var-requires': off
+      prefer-rest-params: off

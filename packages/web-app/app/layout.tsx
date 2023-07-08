@@ -5,7 +5,7 @@ import { stylesheet } from 'astroturf'
 const styles = stylesheet`
   .Blue {
     div {
-      color: red;
+      color: green;
     }
   }
 `
@@ -20,7 +20,7 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={styles.Blue}>{children}</body>
+      <body className={`${styles.Blue} ${inter.className}`}>{children}</body>
     </html>
   )
 }

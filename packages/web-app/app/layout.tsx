@@ -1,5 +1,14 @@
 import './globals.css'
 import { Inter } from 'next/font/google'
+import { stylesheet } from 'astroturf'
+
+const styles = stylesheet`
+  .Blue {
+    div {
+      color: red;
+    }
+  }
+`
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -11,7 +20,7 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={styles.Blue}>{children}</body>
     </html>
   )
 }

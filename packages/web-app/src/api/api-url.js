@@ -1,1 +1,1 @@
-export const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:8080'
+export const apiUrl = import.meta.env.VITE_DATANET_API_URL || 'http://localhost:8080'

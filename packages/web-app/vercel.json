@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "public": "dist",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/dist/$1"
+    }
+  ]
+}

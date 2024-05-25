@@ -27,6 +27,7 @@
     "next": "13.4.9",
     "prettier": "3.0.0",
     "typescript": "5.1.6",
+    "vercel": "^34.2.3",
     "yaml-eslint-parser": "1.2.2"
   },
   "lint-staged": {

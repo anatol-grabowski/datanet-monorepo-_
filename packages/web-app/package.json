@@ -7,7 +7,7 @@
     "dev": "vite",
     "standalone": "REACT_APP_STANDALONE=true vite # run without relying on backend",
     "local": "REACT_APP_API_URL='http://localhost:8080' vite",
-    "remote": "REACT_APP_API_URL='https://shielded-cove-66557.herokuapp.com' npm run start",
+    "remote": "REACT_APP_API_URL='https://datanet-be-api.vercel.app' vite",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",

@@ -21,7 +21,7 @@ export class ServerService {
 
     if (!config.apiPort) throw Error('apiPort is not specified')
     const port = config.apiPort
-    return new Promise((resolve, reject) => {
+    return new Promise<void>((resolve, reject) => {
       const listenCb = (err) => {
         if (err) return reject(err)
         const ownIps = getOwnIps()

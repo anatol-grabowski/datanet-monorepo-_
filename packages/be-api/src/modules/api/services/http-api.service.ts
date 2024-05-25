@@ -39,10 +39,9 @@ export class HttpApiService {
   async listen() {
     if (!this.config.apiPort) throw Error('apiPort is not specified')
     const port = this.config.apiPort
-    return new Promise((resolve, reject) => {
+    return new Promise<void>((resolve, reject) => {
       if (!this.app) throw Error('app not created')
-      this.app.listen(port, (err) => {
-        if (err) return reject(err)
+      this.app.listen(port, () => {
         resolve()
       })
     })

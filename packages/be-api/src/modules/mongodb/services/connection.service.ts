@@ -1,4 +1,4 @@
-import { MongoClient, Db } from 'mongodb'
+import { Db, MongoClient } from 'mongodb'
 
 export class MongodbService {
   private url: string | null
@@ -13,7 +13,7 @@ export class MongodbService {
 
   async connect(url: string) {
     this.url = url
-    this.client = await MongoClient.connect(url, { useNewUrlParser: true })
+    this.client = await MongoClient.connect(url)
     this.db = this.client.db()
   }
 }

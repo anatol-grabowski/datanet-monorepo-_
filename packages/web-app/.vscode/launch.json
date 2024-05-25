@@ -1,0 +1,19 @@
+{
+  "version": "1.0.0",
+  "configurations": [
+    {
+      "name": "Debug Tests",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/node_modules/.bin/jest",
+      "args": [
+        "--runInBand",
+        "--config=${workspaceFolder}/jest.config.ts",
+        "--detectOpenHandles",
+        "--verbose",
+        "${file}"
+      ],
+      "console": "integratedTerminal"
+    }
+  ]
+}

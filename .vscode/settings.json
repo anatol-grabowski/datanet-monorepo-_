@@ -9,7 +9,7 @@
   "prettier.prettierPath": ".yarn/sdks/prettier/index.js",
   "editor.formatOnSave": false,
   "editor.codeActionsOnSave": {
-    "source.fixAll": true
+    "source.fixAll": "explicit"
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "eslint.validate": ["javascript", "javascriptreact", "json", "jsonc", "json5", "yaml"],

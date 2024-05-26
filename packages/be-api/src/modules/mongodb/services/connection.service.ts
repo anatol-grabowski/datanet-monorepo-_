@@ -1,4 +1,5 @@
 import { Db, MongoClient } from 'mongodb'
+import { parseOptions } from 'mongodb/lib/connection_string'
 
 export class MongodbService {
   private url: string | null
@@ -14,6 +15,7 @@ export class MongodbService {
   async connect(url: string) {
     this.url = url
     this.client = await MongoClient.connect(url)
-    this.db = this.client.db()
+    const parsed = parseOptions(url) // for some reason .connect doesn't set default db?
+    this.db = this.client.db(parsed.dbName)
   }
 }

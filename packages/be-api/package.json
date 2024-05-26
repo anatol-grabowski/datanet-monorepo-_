@@ -7,7 +7,7 @@
     "backup": "node -r dotenv/config scripts/backup-db.js",
     "build": "tsc",
     "clean": "rm -rf ./build",
-    "deploy": "git push -f heroku $(git rev-parse HEAD):master",
+    "deploy": "yarn run build && vercel --prod # don't forget to set env vars",
     "start": "node build/index.js",
     "test": "jest",
     "test:cov": "jest --coverage",

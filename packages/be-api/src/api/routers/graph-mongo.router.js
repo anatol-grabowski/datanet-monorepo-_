@@ -25,15 +25,15 @@ router.post(
 async function loadGraph(name) {
   const query = { name }
   const doc = await mongo.db.collection('graphs').findOne(query)
-  if (!doc) return { nodes: [], edges: [] }
+  if (!doc) return { edges: [], nodes: [] }
   return doc.graph
 }
 
 async function saveGraph(name, graph) {
   const query = { name }
   const doc = {
-    name,
     graph,
+    name,
   }
   await mongo.db.collection('graphs').replaceOne(query, doc, { upsert: true })
 }

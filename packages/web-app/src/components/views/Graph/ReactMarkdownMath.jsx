@@ -6,7 +6,6 @@ import rehypeKatex from "rehype-katex";
 import remarkGfm from "remark-gfm";
 import { BlockMath, InlineMath } from "react-katex";
 import "katex/dist/katex.min.css";
-import styles from './ReactMarkdownMathjax.module.scss'
 
 function ReactMarkdownMath(props) {
   const newProps = {

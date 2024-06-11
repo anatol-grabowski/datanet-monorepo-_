@@ -2,7 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react'
 import './index.css'
 import GraphApi from './api/graph.api'
 import { GraphEditor } from './components/containers'
-import { useParams, useRoutes } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 
 const helpText = ``
 
@@ -14,7 +14,7 @@ const App = (props) => {
 
   const handleKeyDown = useCallback((event) => {
     let charCode = String.fromCharCode(event.which).toLowerCase()
-    if (event.ctrlKey && charCode === 's') {
+    if ((event.ctrlKey || event.metaKey) && charCode === 's') {
       const start = Date.now()
       event.preventDefault()
       console.log('Ctrl + S pressed')

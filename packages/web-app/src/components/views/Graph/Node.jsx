@@ -2,7 +2,79 @@ import PropTypes from 'prop-types'
 import React from 'react'
 import { PaperclipIcon } from '../Primitives'
 import ReactMarkdownMath from './ReactMarkdownMath'
-import styles from './Node.module.scss'
+import { stylesheet } from 'astroturf'
+
+const styles = stylesheet`
+.NodeWrapper {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: max-content;
+
+  .Node {
+    pointer-events: all;
+    display: inline-block;
+    font-size: 1.5rem;
+    border: solid black 2px;
+    border-radius: 10px;
+    padding: 5px 10px;
+    background-color: rgba(255, 255, 187, 0.9);
+    cursor: default;
+    user-select: none;
+
+    & > div > :first-child {
+      margin-top: 0.0rem;
+    }
+
+    & > div > :last-child {
+      margin-bottom: 0.0rem;
+    }
+
+    &:hover {
+      border-width: 4px;
+    }
+
+    .MarkdownWrapper {
+      & > * {
+        margin: 0;
+      }
+
+      * {
+        pointer-events: none;
+      }
+
+      a {
+        pointer-events: all;
+      }
+
+      ul {
+        padding-left: 1.7rem;
+        white-space: nowrap;
+      }
+
+      li {
+        white-space: pre-wrap;
+      }
+
+      p {
+        white-space: pre-wrap;
+      }
+    }
+  }
+}
+
+.node .node-tags {
+  border-width: 1px-solid-black;
+}
+
+.node-tags .node-tag {
+  display: inline-block;
+  border: 2px solid black;
+  border-radius: 5px;
+  margin: 0.1rem;
+  padding: 0 0.1rem;
+  background: #ffd;
+}
+`
 
 const PureReactMarkdown = React.memo(ReactMarkdownMath)
 const preventDefault = evt => evt.preventDefault()
@@ -48,7 +120,7 @@ export default class Node extends React.Component {
           >
             {text}
           </PureReactMarkdown>
-          <NodeTags tags={tags}/>
+          {/* <NodeTags tags={tags}/> */}
         </div>
         {attachments.length > 0 && <PaperclipIcon /> }
       </div>
@@ -72,12 +144,12 @@ Node.propTypes = {
   onDoubleClick: PropTypes.func.isRequired,
 }
 
-const NodeTags = ({tags}) => (
-  <div className='node-tags'>
-    {tags.map((tag, i) => <NodeTag key={i} text={tag}/>)}
-  </div>
-)
+// const NodeTags = ({tags}) => (
+//   <div className='node-tags'>
+//     {tags.map((tag, i) => <NodeTag key={i} text={tag}/>)}
+//   </div>
+// )
 
-const NodeTag = ({text}) => (
-  <div className='node-tag'>{text}</div>
-)
+// const NodeTag = ({text}) => (
+//   <div className='node-tag'>{text}</div>
+// )

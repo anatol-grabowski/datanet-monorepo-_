@@ -5,7 +5,6 @@
   .Node {
     pointer-events: all;
     display: inline-block;
-    white-space: pre;
     font-size: 1.5rem;
     border: solid black 2px;
     border-radius: 10px;
@@ -42,7 +41,16 @@
       }
 
       ul {
-        padding-left: 1.8rem;
+        padding-left: 1.7rem;
+        white-space: nowrap;
+      }
+
+      li {
+        white-space: pre-wrap;
+      }
+
+      p {
+        white-space: pre-wrap;
       }
     }
   }

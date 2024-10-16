@@ -13,7 +13,10 @@ export default class GraphApi {
     }
     console.log('opening', graphName)
     const url = `${apiUrl}/graph/${encodeURIComponent(graphName)}`
-    const response = await fetch(url)
+    const headers = {}
+    const token = localStorage.getItem('auth')
+    if (token != null) headers.Authorization = `Bearer ${token}`
+    const response = await fetch(url, { headers })
     const json = await response.json()
     const graph = json.graph
     console.log('opened', graph.nodes.length)
@@ -23,12 +26,15 @@ export default class GraphApi {
   static async saveGraph(graph, graphName) {
     console.log('saving', graphName)
     const url = `${apiUrl}/graph/${encodeURIComponent(graphName)}`
+    const headers = {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    }
+    const token = localStorage.getItem('auth')
+    if (token != null) headers.Authorization = `Bearer ${token}`
     const response = await fetch(url, {
       method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      },
+      headers,
       body: JSON.stringify({ graph }),
     })
     console.log('saved', response)

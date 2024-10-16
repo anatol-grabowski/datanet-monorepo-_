@@ -14,7 +14,7 @@ export default function Login() {
       <GoogleLogin
         onSuccess={credentialResponse => {
           const decoded = JSON.parse(atob(credentialResponse.credential.split('.')[1]));
-          localStorage.setItem('auth', JSON.stringify(credentialResponse))
+          localStorage.setItem('auth', credentialResponse.credential)
           localStorage.setItem('user', JSON.stringify(decoded))
           setUser(decoded);
           console.log("Logged in", credentialResponse, decoded);

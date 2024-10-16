@@ -2898,6 +2898,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@react-oauth/google@npm:^0.12.1":
+  version: 0.12.1
+  resolution: "@react-oauth/google@npm:0.12.1"
+  peerDependencies:
+    react: ">=16.8.0"
+    react-dom: ">=16.8.0"
+  checksum: fff63a0fc0b367519b48422c39f6ebc73226e4442ae148d752d05083a185660e66d047fcc8d88b962de97980cfb71f726de0a96ff5f00af0d7e68f333560a7c3
+  languageName: node
+  linkType: hard
+
 "@remix-run/router@npm:1.16.1":
   version: 1.16.1
   resolution: "@remix-run/router@npm:1.16.1"
@@ -21494,6 +21504,7 @@ __metadata:
   dependencies:
     "@chromatic-com/storybook": 1.4.0
     "@esbuild-plugins/node-globals-polyfill": 0.2.3
+    "@react-oauth/google": ^0.12.1
     "@storybook/addon-essentials": 8.1.1
     "@storybook/addon-interactions": 8.1.1
     "@storybook/addon-links": 8.1.1

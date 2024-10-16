@@ -7,17 +7,21 @@ import {
   Routes,
   Route,
 } from 'react-router-dom'
+import { GoogleOAuthProvider } from '@react-oauth/google'
 import App from './App'
-import { User } from './components/containers'
+import { User, Login } from './components/containers'
 
 function RoutedApp() {
   return (
-    <Router>
-      <Routes>
-        <Route path='/graph/:graph' Component={App} />
-        <Route path='/user' Component={User} />
-      </Routes>
-    </Router>
+    <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_AUTH_CLIENT_ID}>
+      <Router>
+        <Routes>
+          <Route path='/graph/:graph' Component={App} />
+          <Route path='/user' Component={User} />
+          <Route path='/login' Component={Login} />
+        </Routes>
+      </Router>
+    </GoogleOAuthProvider>
   )
 }
 
